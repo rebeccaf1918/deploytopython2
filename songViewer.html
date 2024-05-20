@@ -200,9 +200,9 @@
                 "url": "/TaylorSwiftSongs",
                 "method":"GET",
                 "data":"",
-                "dataType": "JSON",
+                "dataType": "json",
                 "success":function(result){
-                    console.log(result);
+                    //console.log(result);
                     for (song of result){
                         addSongToTable(song);
                     }
@@ -223,7 +223,7 @@
                     "url": "/TaylorSwiftSongs",
                     "method":"POST",
                     "data":JSON.stringify(song),
-                    "dataType": "JSON",
+                    "dataType": "json",
                     contentType: "application/json; charset=utf-8",
                     "success":function(result){
                         //console.log(result);
@@ -246,7 +246,7 @@
                     "url": "/TaylorSwiftSongs/"+encodeURI(song.id),
                     "method":"PUT",
                     "data":JSON.stringify(song),
-                    "dataType": "JSON",
+                    "dataType": "json",
                     contentType: "application/json; charset=utf-8",
                     "success":function(result){
                     // console.log(result);
@@ -265,7 +265,7 @@
                     "url": "/TaylorSwiftSongs/"+encodeURI(id),
                     "method":"DELETE",
                     "data":"",
-                    "dataType": "JSON",
+                    "dataType": "json",
                     contentType: "application/json; charset=utf-8",
                     "success":function(result){
                         //console.log(result);
