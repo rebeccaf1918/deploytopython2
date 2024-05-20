@@ -1,8 +1,3 @@
-#TODO 
-# add in here from 7.02 lecture with song details in code to check it works
-# then when further on can look at using it from python anywhere 
-# add in error handling
-
 
 # This songDAO file contains the functions that will be used by the Application to interact with the song Database
 
@@ -11,7 +6,6 @@ import dbconfig as cfg
 from mysql.connector import cursor
 from mysql.connector.errors import Error
 
-#### to do at start of 7.03 video; readme
 
 class songDAO:    # Defining the class for accessing the song data contained in the database &
     connection =""      # initialising the class variables
@@ -106,6 +100,7 @@ class songDAO:    # Defining the class for accessing the song data contained in 
         cursor.execute(sql, values)
         self.connection.commit()
         self.closeAll()
+        print("Update Completed")
 
         
     def delete(self, ID):

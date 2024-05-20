@@ -13,16 +13,14 @@ def index():
 
 @app.route('/TaylorSwiftSongs', methods=['GET']) #Defining route to retieve all Taylor Swift songs from the database
 def getAll():
-    #results = songDAO.getAll()                                         
-    #return jsonify(results)   # converts the result from the database to a JSON format
+   # converts the result from the database to a JSON format
     return jsonify(SongDAO.getAll())
-    #return 'taylor'
 
 
 
 @app.route('/TaylorSwiftSongs/<int:id>', methods=['GET'])
 def findByID(id):
-    foundSong = SongDAO.findbyID(id)
+    foundSong = SongDAO.findByID(id)
     return jsonify(foundSong)
 
 
@@ -78,10 +76,6 @@ def findByGenre():
     if GenreType is None:
         return jsonify({"error": "No genre found."}), 404
     return jsonify(GenreType)
-
-@app.route('/', methods=['GET'])
-def getallSongs():
-    return "Hello World!!!"
 
 
 if __name__ == "__main__":
