@@ -71,3 +71,8 @@ A Github repostitory, containing all the required code, is used to deploy the ap
 
 
 ## **References**
+Andrew Beatty lectures as part of the Web Services & Applications module
+https://www.w3schools.com/js/js_ajax_database.asp
+https://dev.to/sobitp59/why-do-browser-consoles-return-undefined-explained-26lm
+https://www.w3schools.com/html/html_css.asp
+https://stackoverflow.com/questions/24342748/why-does-console-log-say-undefined-and-then-the-correct-value
