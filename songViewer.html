@@ -24,6 +24,7 @@
                         <th><u>Update</u></th>
                         <th><u>Delete</u></th>
                 </tr>   
+
             </table>
 
 
@@ -202,7 +203,7 @@
             "data":"",
             "dataType": "JSON",
             "success":function(result){
-                //console.log(result);
+                console.log(result);
                 for (song of result){
                     addSongToTable(song);
                 }    
