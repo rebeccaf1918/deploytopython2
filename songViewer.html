@@ -305,23 +305,23 @@
                     }
                 }
             
-            function processGetAllResponse(result){ 
-            console.log("in process") 
-            //console.log(result) 
-            for (book of result){ 
-                //console.log(book) 
-                displaysong = {} 
-                displaysong.id = song.id 
-                displaysong.title = book.title
-                displaysong.album = book.album
-                displaysong.genre = book.charting 
-                displaysong.charting = song.charting
-                // you can now pass it to addBookToTable 
-                console.log(displayBook) 
+        function processGetAllResponse(result){ 
+        console.log("in process") 
+        //console.log(result) 
+        for (book of result){ 
+            //console.log(book) 
+            displaysong = {} 
+            displaysong.id = song.id 
+            displaysong.title = book.title
+            displaysong.album = book.album
+            displaysong.genre = book.charting 
+            displaysong.charting = song.charting
+            // you can now pass it to addBookToTable 
+            console.log(displayBook) 
             } 
         } 
         
-        getAllAjax();
+        //getAllAjax();
   
         </script>
 </html>
