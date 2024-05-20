@@ -11,7 +11,7 @@
         <h1>Songs</h1>
         <div> <button id="showCreateButton" onclick="showCreate()">Create</button></div>
         <div>
-            <table class="Table" id="songTable">
+            <table class="Table" id="TaylorSwiftSongsTable">
                 <caption>
                     A list of Taylor Swift Songs
                 </caption>
@@ -193,14 +193,12 @@
             return song
         }
 
-
-
         function getAllAjax(){
             $.ajax({
                 "url": "/TaylorSwiftSongs",
                 "method":"GET",
                 "data":"",
-                "dataType": "json",
+                "dataType": "JSON",
                 "success":function(result){
                     //console.log(result);
                     for (song of result){
@@ -210,9 +208,8 @@
                 },
                 "error":function(xhr,status,error){
                     console.log("error: "+status+" msg:"+error);
-            }
+                }
             });
-
         }
 
 
@@ -282,7 +279,7 @@
                 var input, filter, table, tr, td, i, txtValue;
                 input = document.getElementById("myInput");
                 filter = input.value.toUpperCase();
-                table = document.getElementById("songTable");
+                table = document.getElementById("TaylorSwiftSongsTable");
                 tr = table.getElementsByTagName("tr");
                 for (i = 0; i < tr.length; i++) {
                     alltags = tr[i].getElementsByTagName("td");
@@ -307,6 +304,7 @@
         getAllAjax();
   
         </script>
+    <body>
 </html>
 
         
