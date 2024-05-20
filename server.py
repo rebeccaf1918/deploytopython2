@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, url_for, request, redirect, abort
-import songDAO as songDAO
+from songDAO import SongDAO
 import mysql
 import mysql.connector
 import dbconfig as cfg
@@ -15,14 +15,14 @@ def index():
 def getAll():
     #results = songDAO.getAll()                                         
     #return jsonify(results)   # converts the result from the database to a JSON format
-    return jsonify(songDAO.getAll())
+    return jsonify(SongDAO.getAll())
     #return 'taylor'
 
 
 
 @app.route('/TaylorSwiftSongs/<int:id>', methods=['GET'])
 def findByID(id):
-    foundSong = songDAO.findbyID(id)
+    foundSong = SongDAO.findbyID(id)
     return jsonify(foundSong)
 
 
@@ -37,13 +37,13 @@ def create():
         "Genre": request.json['Genre'],
         "Charting": request.json['Charting'],
     }
-    songAdded = songDAO.create(SONG)                # TODO ????????????????                   
+    songAdded = SongDAO.create(SONG)                # TODO ????????????????                   
     return jsonify(songAdded), 201 # creating status code
 
 
 @app.route('/TaylorSwiftSongs/<int:id>', methods=['PUT'])                    
 def update(id):
-    foundSong = songDAO.findByID(id)
+    foundSong = SongDAO.findByID(id)
     if not foundSong:                  # Error handling if invalid id entered
         abort(404)
     if not request.json:
@@ -60,20 +60,20 @@ def update(id):
         foundSong['Genre'] = reqJson['Genre']
     if 'Charting' in reqJson:
         foundSong['Charting'] = reqJson['Charting']
-    songDAO.update(id,foundSong)
+    SongDAO.update(id,foundSong)
     return jsonify(foundSong)
 
 
     
 @app.route('/TaylorSwiftSongs/<int:id>' , methods=['DELETE'])
 def delete(id):
-    songDAO.delete(id)
+    SongDAO.delete(id)
     return jsonify({"Delete complete":True})
 
 @app.route('/findbyGenre')
 def findByGenre():
     Genre= request.args.get('Genre')
-    GenreType = songDAO.findByGenre(Genre)
+    GenreType = SongDAO.findByGenre(Genre)
 
     if GenreType is None:
         return jsonify({"error": "No genre found."}), 404

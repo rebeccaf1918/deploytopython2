@@ -141,4 +141,4 @@ class songDAO:    # Defining the class for accessing the song data contained in 
             SONGS[attkeys[currentkey]] = attrib
             currentkey = currentkey + 1 
         return SONGS
-    songDAO = songDAO()
+SongDAO = songDAO()
