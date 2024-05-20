@@ -8,10 +8,10 @@
     <body>
 
     <body>
-        <h1>Songs</h1>
+        <h1>Taylor Swift Songs Data</h1>
         <div> <button id="showCreateButton" onclick="showCreate()">Create</button></div>
         <div>
-            <table class="Table" id="TaylorSwiftSongsTable">
+            <table class="Table" id="songTable">
                 <caption>
                     A list of Taylor Swift Songs
                 </caption>
@@ -149,7 +149,7 @@
 
 
         function getSongFromRow(rowElement){
-            var car ={}
+            var song ={}
             song.id  = rowElement.getAttribute('id')
             song.Title = rowElement.cells[1].firstChild.textContent
             song.Album = rowElement.cells[2].firstChild.textContent
@@ -279,7 +279,7 @@
                 var input, filter, table, tr, td, i, txtValue;
                 input = document.getElementById("myInput");
                 filter = input.value.toUpperCase();
-                table = document.getElementById("TaylorSwiftSongsTable");
+                table = document.getElementById("songTable");
                 tr = table.getElementsByTagName("tr");
                 for (i = 0; i < tr.length; i++) {
                     alltags = tr[i].getElementsByTagName("td");
