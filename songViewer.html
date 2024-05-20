@@ -219,6 +219,18 @@
             
     }
 
+    function addSongToTable(song) {
+    const songListElement = document.getElementById("songTable");
+
+    // Create a new list item for each song
+    const listItem = document.createElement("li");
+    listItem.textContent = song.title; // 
+
+    // Append the list item to the song list
+    songListElement.appendChild(listItem);
+    }
+
+
 
     function createSongAjax(song){
         //var song = {"Title":"Sparks Fly", "Album":"Speak Now","Genre":"pop", "Charting": 1}
