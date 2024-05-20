@@ -2,11 +2,11 @@ from flask import Flask, jsonify, url_for, request, redirect, abort
 from songDAO import SongDAO
 import mysql
 import mysql.connector
-import dbconfig as cfg
+import dbconfig as cfg #importing the various libraries and modules required
 
 app = Flask(__name__, static_url_path='', static_folder='.')
 
-@app.route('/')
+@app.route('/')  #mapping endpoint to check server works
 def index():
     return "Hello World"
 
@@ -18,13 +18,13 @@ def getAll():
 
 
 
-@app.route('/TaylorSwiftSongs/<int:id>', methods=['GET'])
+@app.route('/TaylorSwiftSongs/<int:id>', methods=['GET']) #defining route to get Taylor Swift songs by id entered
 def findByID(id):
     foundSong = SongDAO.findByID(id)
     return jsonify(foundSong)
 
 
-@app.route('/TaylorSwiftSongs', methods=['POST'])                                
+@app.route('/TaylorSwiftSongs', methods=['POST'])  #defining route to create a song for the table                        
 def create():
     if not request.json:                     # Checking if the request has JSON data
         abort(400)                           # Error handling if no JSON data 
@@ -35,11 +35,11 @@ def create():
         "Genre": request.json['Genre'],
         "Charting": request.json['Charting'],
     }
-    songAdded = SongDAO.create(SONG)                # TODO ????????????????                   
+    songAdded = SongDAO.create(SONG)                                  
     return jsonify(songAdded), 201 # creating status code
 
 
-@app.route('/TaylorSwiftSongs/<int:id>', methods=['PUT'])                    
+@app.route('/TaylorSwiftSongs/<int:id>', methods=['PUT'])   #defining a route for a put request                 
 def update(id):
     foundSong = SongDAO.findByID(id)
     if not foundSong:                  # Error handling if invalid id entered
@@ -63,12 +63,12 @@ def update(id):
 
 
     
-@app.route('/TaylorSwiftSongs/<int:id>' , methods=['DELETE'])
+@app.route('/TaylorSwiftSongs/<int:id>' , methods=['DELETE']) #defining the route for a deletion
 def delete(id):
     SongDAO.delete(id)
     return jsonify({"Delete complete":True})
 
-@app.route('/findbyGenre')
+@app.route('/findbyGenre') #defining a route to find song by genre
 def findByGenre():
     Genre= request.args.get('Genre')
     GenreType = SongDAO.findByGenre(Genre)
