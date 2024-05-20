@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> View Taylor Swift Songs</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        
@@ -206,8 +208,7 @@
                 console.log(result);
                 for (song of result){
                     addSongToTable(song);
-                }
-            return addSongToTable()    
+                }   
 
             },
             "error":function(xhr,status,error){
