@@ -193,7 +193,11 @@
             return song
         }
 
-        function getAllAjax(){
+
+        
+            
+
+        function getAll(callback){
             $.ajax({
                 "url": "/TaylorSwiftSongs",
                 "method":"GET",
@@ -201,15 +205,16 @@
                 "dataType": "JSON",
                 "success":function(result){
                     //console.log(result);
+                    callback(result)
                     for (song of result){
                         addSongToTable(song);
-                    }
-                    
+                    }    
                 },
                 "error":function(xhr,status,error){
                     console.log("error: "+status+" msg:"+error);
                 }
             });
+            
         }
 
 
