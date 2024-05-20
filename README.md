@@ -31,7 +31,6 @@ In order to complete my work, I imported the libraries required as listed in the
     - [songViewer](#songViewerhtml)
     - [requirements](#requirementstxt)
 - [Online Hosting](#online-hosting)
-- [Running the Program](#running-the-program)
 - [References](#references)
 
 ## **Introduction**
