@@ -198,27 +198,25 @@
         return song
     }
 
-   
-
-    function getAllAjax(){
-        $.ajax({
-            "url": "/TaylorSwiftSongs",
-            "method":"GET",
-            "data":"",
-            "dataType": "JSON",
-            "success":function(result){
-                console.log(result);
-                for (song of result){
-                    addSongToTable(song);
-                }   
-
-            },
-            "error":function(xhr,status,error){
-                console.log("error: "+status+" msg:"+error);
+    function getAllAjax() {
+    $.ajax({
+        url: "/TaylorSwiftSongs",
+        method: "GET",
+        data: "",
+        dataType: "JSON",
+        success: function (result) {
+            console.log(result);
+            for (const song of result) {
+                addSongToTable(song);
             }
-        });
-            
+        },
+        error: function (xhr, status, error) {
+            console.log("error: " + status + " msg: " + error);
+        }
+    });
     }
+
+
 
 
     function createSongAjax(song){
