@@ -6,6 +6,7 @@ import dbconfig as cfg
 
 app = Flask(__name__, static_url_path='', static_folder='.')
 
+<<<<<<< HEAD
 @app.route('/')
 def index():
     return "Hello World"
@@ -78,6 +79,11 @@ def findByGenre():
     if GenreType is None:
         return jsonify({"error": "No genre found."}), 404
     return jsonify(GenreType)
+=======
+@app.route('/', methods=['GET'])
+def getallSongs():
+    return "Hello World!!!"
+>>>>>>> 965c45df02b476ce00365b911b50e75b9ddd876f
 
 if __name__ == "__main__":
     app.run(debug=True)
